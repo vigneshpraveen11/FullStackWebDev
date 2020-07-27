@@ -63,7 +63,8 @@ const App = () => {
                         setSucessMessage('')                        
                     }, 5000))
                     .catch(err => {
-                        setErrorMessage(`There was an error while saving the new contact ${err}`)
+                        const message = err.response.data.errorName
+                        setErrorMessage(`There was an error while saving the new contact: ${message}`)
                         setTimeout(() => {
                             setErrorMessage('')
                         }, 5000)
